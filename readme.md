@@ -110,6 +110,10 @@ pip install -r requirements.txt
 https://makersuite.google.com/app/apikey
 
 # run the app
+```
 uvicorn app.main:app --reload
+`http://localhost:8080`
+migrate to: http://localhost:8080/docs and test it out
+```
 
 
