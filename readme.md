@@ -35,10 +35,6 @@ The system demonstrates the integration of computer vision, language processing,
 
 - Receives document_id and user question.
 
-- Waits 2 seconds (as instructed).
-
-- Internally overrides any user question to "What medication is used and why?"
-
 - Retrieves the stored structured data.
 
 - Sends context + question to the LLM for reasoning.
