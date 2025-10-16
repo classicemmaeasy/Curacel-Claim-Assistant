@@ -11,13 +11,15 @@
 
 ### /extract endpoint
 
-- Accepts an image or PDF.
+- User uploads a PDF or image.
 
-- Passes it to Gemini Vision Pro 2.5.
+- The file is temporarily saved and processed using an OCR model (e.g., Google Gemini Vision pro 2.5).
 
-- Extracts structured info in a flexible JSON schema.
+- Extracted text is parsed and structured into key-value JSON.
 
-- Stores result in memory with a generated document_id.
+- Structured data is stored in in-memory storage for quick access.
+
+- The API returns the structured JSON and a unique document_id.
 
 ### /ask endpoint
 
@@ -34,3 +36,36 @@
 - Returns a simple JSON answer.
 
 
+## My file Structure
+
+```
+DATA_EXTRACTION/
+│
+├── app/
+│   ├── models/
+│   │   ├── __init__.py
+│   │   └── schemas.py              # Defines data schemas for requests/responses
+│   │
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── ocr_extractor.py        # OCR + Gemini Vision data extraction logic
+│   │   └── storage.py              # Handles saving & retrieving structured data
+│   │
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   └── config.py               # Environment + Gemini API key configuration
+│   │
+│   └── main.py                     # FastAPI entrypoint with /extract & /ask endpoints
+│
+├── tests/
+│   ├── conftest.py                 # Pytest fixtures (mocks OCR, storage, Gemini)
+│   └── test_endpoints.py           # Unit tests for endpoints
+│
+├── xenv/                           # Virtual environment (ignored in deployment)
+│
+├── .env                            # API keys and local environment variables
+├── check.py                        # Verifies PDF-to-image conversion (requires Poppler path)
+├── extracted_docs.json             # Stores mock or sample extracted data
+├── requirements.txt                # Python dependencies
+└── readme.md                       # Project documentation
+```
