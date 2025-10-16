@@ -101,7 +101,7 @@ pip install -r requirements.txt
 
 # Package to install
 - poppler: it helps pdf2image to convert pdf to images.
-https://github.com/oschwartz10612/poppler-windows/releases/
+- install it here : https://github.com/oschwartz10612/poppler-windows/releases/
 
 # setup api key in  .env
 - create .env file
