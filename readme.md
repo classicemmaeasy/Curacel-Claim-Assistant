@@ -1,11 +1,21 @@
 
+## Intelligent Claims QA Service
+This project implements a FastAPI-based microservice that accepts uploaded claim sheets (PDF or image), extracts key details using OCR and LLM reasoning, and enables users to ask natural-language questions about the extracted data.
 
-## creating a virtual Environment
-- python -m venv xenv
-- cd xenv/Scripts
-- ./activate
-- cd..
+The system demonstrates the integration of computer vision, language processing, and structured reasoning into a cohesive and practical solution.
 
+
+
+
+## Assumptions and my thought process
+- I decided to use Fastapi because of its async concurency capability (handling multiple users at the same time) and it improve overall system throughput and responsiveness, particularly in I/O-bound scenarios.
+
+- I chose Gemini 2.5 Vision Pro because it combines powerful OCR, visual understanding, and natural language reasoning into a single step unlike traditional OCR tools like Tesseract that require multiple stages and struggle with unstructured or low-quality claim documents. Gemini 2.5 Vision Pro accurately extracts structured medical data (e.g., diagnoses, medications, dosages) directly from scanned or photographed forms, understands context, and handles variations in layout effortlessly. Its efficiency, contextual intelligence, and seamless integration made it the ideal choice for building a robust, scalable, and intelligent claims QA service.
+- Its multimodal reasoning also allows for deeper contextual understanding of medical data (e.g., differentiating between medication dosage and total cost). This made it superior for structured extraction and QA accuracy within limited development time.
+
+- I added the time module to handle retry logic for Gemini API calls specifically to manage rate limits (429 errors) and timeout errors (504 errors). Gemini’s free-tier API occasionally rejects requests when the quota is exceeded or when the model takes too long to respond. By introducing a short delay using time.sleep(10) before retrying, the service avoids crashing and ensures stability under temporary API issues. This improves reliability and user experience, allowing the app to recover gracefully instead of failing abruptly.
+
+- I implemented persistent storage using a JSON file (extracted_docs.json) to ensure that extracted claim data from uploaded documents remains available for subsequent /ask queries, even after the API restarts. While in-memory storage (like a Python dictionary) would have been simpler, it would lose all data once the server stops. By using a lightweight JSON-based approach, I achieved a balance between simplicity, persistence, and maintainability ideal for this small-scale microservice. This design avoids the overhead of setting up a full database while ensuring that document data can be easily retrieved, tested, and debugged, which aligns well with the task’s focus on practicality and reliability.
 
 ## My Approach
 
@@ -69,3 +79,37 @@ DATA_EXTRACTION/
 ├── requirements.txt                # Python dependencies
 └── readme.md                       # Project documentation
 ```
+
+## How to use Locally
+### clone the  repo
+```
+- git clone https://github.com/classicemmaeasy/Curacel-Claim-Assistant.git
+- cd Curacel-Claim-Assistant
+```
+## creating a virtual Environment
+```
+- python -m venv xenv
+- xenv\Scripts\activate    # For Windows
+# OR
+- source xenv/bin/activate # For Mac/Linux
+```
+# dependencies
+```
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+# Package to install
+- poppler: it helps pdf2image to convert pdf to images.
+https://github.com/oschwartz10612/poppler-windows/releases/
+
+# setup api key in  .env
+- create .env file
+- GEMINI_API_KEY=your_google_gemini_api_key_here
+- get it here
+https://makersuite.google.com/app/apikey
+
+# run the app
+uvicorn app.main:app --reload
+
+
