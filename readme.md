@@ -112,4 +112,24 @@ uvicorn app.main:app --reload
 migrate to: http://localhost:8080/docs and test it out
 ```
 
-
+### ‎Extract:
+```
+‎Upload your PDF file → Get structured JSON output like:
+‎{
+‎  "document_id": "8b365497-9a0b-4540-a966-b799a0cac522",
+‎  "extracted_data": {
+‎    "patient_details": { "name": "Emily Davis" },
+‎    "diagnoses": ["Dermatitis"],
+‎    "total_amount_billed": 49000.0
+‎  }
+‎}
+```
+### ‎Ask:
+```
+‎Use that document_id
+‎{
+‎  "document_id": "8b365497-9a0b-4540-a966-b799a0cac522",
+‎  "question": "How many tablets of DOXYCYCLINE 100MG were prescribed?"
+‎}
+```
+‎
