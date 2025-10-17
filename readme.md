@@ -65,8 +65,6 @@ DATA_EXTRACTION/
 │   ├── conftest.py                 # Pytest fixtures (mocks OCR, storage, Gemini)
 │   └── test_endpoints.py           # Unit tests for endpoints
 │
-├── xenv/                           # Virtual environment (ignored in deployment)
-│
 ├── check.py                        # Verifies PDF-to-image conversion (requires Poppler path)
 ├── extracted_docs.json             # Stores mock or sample extracted data
 ├── requirements.txt                # Python dependencies
