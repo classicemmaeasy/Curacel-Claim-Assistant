@@ -58,11 +58,9 @@ DATA_EXTRACTION/
 │   │   └── storage.py              # Handles saving & retrieving structured data
 │   │
 │   ├── utils/
-│   │   ├── __init__.py
-│   │   └── config.py               # Environment + Gemini API key configuration
-│   │
-│   └── main.py                     # FastAPI entrypoint with /extract & /ask endpoints
-│
+│      ├── __init__.py
+│      └── config.py               # Environment + Gemini API key configuration
+│  
 ├── tests/
 │   ├── conftest.py                 # Pytest fixtures (mocks OCR, storage, Gemini)
 │   └── test_endpoints.py           # Unit tests for endpoints
