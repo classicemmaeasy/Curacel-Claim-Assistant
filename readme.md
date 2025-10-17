@@ -35,10 +35,6 @@ The system demonstrates the integration of computer vision, language processing,
 
 - Receives document_id and user question.
 
-- Waits 2 seconds (as instructed).
-
-- Internally overrides any user question to "What medication is used and why?"
-
 - Retrieves the stored structured data.
 
 - Sends context + question to the LLM for reasoning.
@@ -110,7 +106,36 @@ pip install -r requirements.txt
 https://makersuite.google.com/app/apikey
 
 # run the app
+```
 uvicorn app.main:app --reload
+<<<<<<< HEAD
 - make sure the path you run it is the same folder w
 App runs at: http://127.0.0.1:8000
 
+=======
+`http://localhost:8080`
+migrate to: http://localhost:8080/docs and test it out
+```
+
+### ‎Extract:
+```
+‎Upload your PDF file → Get structured JSON output like:
+‎{
+‎  "document_id": "8b365497-9a0b-4540-a966-b799a0cac522",
+‎  "extracted_data": {
+‎    "patient_details": { "name": "Emily Davis" },
+‎    "diagnoses": ["Dermatitis"],
+‎    "total_amount_billed": 49000.0
+‎  }
+‎}
+```
+### ‎Ask:
+```
+‎Use that document_id
+‎{
+‎  "document_id": "8b365497-9a0b-4540-a966-b799a0cac522",
+‎  "question": "How many tablets of DOXYCYCLINE 100MG were prescribed?"
+‎}
+```
+‎
+>>>>>>> f26c5205b4f8c6ee5678ccdbb67264540c9485c0
