@@ -111,5 +111,6 @@ https://makersuite.google.com/app/apikey
 
 # run the app
 uvicorn app.main:app --reload
-
+- make sure the path you run it is the same folder w
+App runs at: http://127.0.0.1:8000
 
