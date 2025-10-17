@@ -67,7 +67,6 @@ DATA_EXTRACTION/
 │
 ├── xenv/                           # Virtual environment (ignored in deployment)
 │
-├── .env                            # API keys and local environment variables
 ├── check.py                        # Verifies PDF-to-image conversion (requires Poppler path)
 ├── extracted_docs.json             # Stores mock or sample extracted data
 ├── requirements.txt                # Python dependencies
