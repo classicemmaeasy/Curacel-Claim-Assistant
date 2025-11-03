@@ -58,18 +58,13 @@ DATA_EXTRACTION/
 │   │   └── storage.py              # Handles saving & retrieving structured data
 │   │
 │   ├── utils/
-│   │   ├── __init__.py
-│   │   └── config.py               # Environment + Gemini API key configuration
-│   │
-│   └── main.py                     # FastAPI entrypoint with /extract & /ask endpoints
-│
+│      ├── __init__.py
+│      └── config.py               # Environment + Gemini API key configuration
+│  
 ├── tests/
 │   ├── conftest.py                 # Pytest fixtures (mocks OCR, storage, Gemini)
 │   └── test_endpoints.py           # Unit tests for endpoints
 │
-├── xenv/                           # Virtual environment (ignored in deployment)
-│
-├── .env                            # API keys and local environment variables
 ├── check.py                        # Verifies PDF-to-image conversion (requires Poppler path)
 ├── extracted_docs.json             # Stores mock or sample extracted data
 ├── requirements.txt                # Python dependencies
@@ -138,4 +133,3 @@ migrate to: http://localhost:8080/docs and test it out
 ‎}
 ```
 ‎
->>>>>>> f26c5205b4f8c6ee5678ccdbb67264540c9485c0
