@@ -8,7 +8,7 @@ import tempfile
 import os
 from app.config import GEMINI_API_KEY
 
-# this ocr extractor is to extract the text from the image or pdf file I was given
+# this ocr extractor is to extract the text from the image or pdf file 
 
 genai.configure(api_key=GEMINI_API_KEY)
 
