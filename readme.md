@@ -74,7 +74,7 @@ DATA_EXTRACTION/
 ## How to use Locally
 ### clone the  repo
 ```
-- git clone https://github.com/classicemmaeasy/Curacel-Claim-Assistant.git
+- git clone https://github.com/classicemmaeasy/Insurance-Claim-Assistant.git
 - cd Curacel-Claim-Assistant
 ```
 ## creating a virtual Environment
